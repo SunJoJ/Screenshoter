@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,7 +34,7 @@ public class MyThread extends Thread {
                 ImageIO.write(bufferedImage, "png", baos);
                 ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 
-                FileMetadata metadata = client.files().uploadBuilder("/" + dateFormat.format(today)+".png")
+                FileMetadata metadata = client.files().uploadBuilder("/" + dateFormat.format(today)+ ".png")
                         .uploadAndFinish(bais);
                 sleep(5000);
 
